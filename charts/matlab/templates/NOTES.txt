@@ -1,0 +1,3 @@
+{{- include "common.notes.defaultNotes" . -}}
+
+Login with the default password 'matlab'

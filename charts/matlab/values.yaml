@@ -1,0 +1,35 @@
+image:
+  repository: nvcr.io/partners/matlab
+
+service:
+  port: 
+    port: 6080
+
+strategy:
+  type: Recreate
+
+resources:
+  limits:
+    # One nvidia.com/gpu as standard (or 8 total)
+    nvidia.com/gpu: 1
+  requests: # What we need to be scheduled
+    memory: "16Gi"
+    cpu: "4"
+
+# We want to save data over time
+persistence:
+  data:
+    accessMode: "ReadWriteOnce"	
+    enabled: true
+    size: 100Gi
+    emptyDir: false
+    mountPath: /data
+
+# Set command to wait in the background
+command: ["/bin/bash"]
+args: ['"-c","/bin/run.sh; tail -n1 -f /bin/run.sh"']
+
+# Disable the liveness probe
+probes:
+  liveness:
+    enabled: false
