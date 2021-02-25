@@ -3,6 +3,24 @@ entries:
   matlab:
   - apiVersion: v2
     appVersion: r2020b
+    created: "2021-02-25T07:42:06.017629402Z"
+    dependencies:
+    - name: common
+      repository: https://k8s-at-home.com/charts/
+      version: 3.0.1
+    description: Mathworks Matlab chart
+    digest: d14db6e03302513e1052e4374e597682c4458bbe69d4b9b909664d7ae8669a48
+    home: https://github.com/sennerholm/nvidia-charts/charts/tree/master/charts/matlab
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: mikael@sennerholm.net
+      name: Mikael Sennerholm
+    name: matlab
+    urls:
+    - https://github.com/sennerholm/nvidia-charts/releases/download/matlab-0.0.3/matlab-0.0.3.tgz
+    version: 0.0.3
+  - apiVersion: v2
+    appVersion: r2020b
     created: "2021-02-24T22:05:17.443586446Z"
     dependencies:
     - name: common
@@ -19,4 +37,4 @@ entries:
     urls:
     - https://github.com/sennerholm/nvidia-charts/releases/download/matlab-0.0.2/matlab-0.0.2.tgz
     version: 0.0.2
-generated: "2021-02-24T22:05:17.443590846Z"
+generated: "2021-02-25T07:42:06.017637702Z"
