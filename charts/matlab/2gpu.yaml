@@ -1,0 +1,4 @@
+resources:
+  limits:
+    # One nvidia.com/gpu as standard (or 8 total)
+    nvidia.com/gpu: 2
