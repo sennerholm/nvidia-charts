@@ -1,3 +1,17 @@
-{{- include "common.notes.defaultNotes" . -}}
+To reach the matlab container do a port-forward to expose the port on your computer
 
-Login with the default password 'matlab'
+  kubectl port-forward service/{{ include "common.names.fullname" . }} 8080:6080
+
+After that connect a webbrowser to:
+
+http://localhost:8080/
+
+And login with the default password 'matlab'
+
+When you are done for today remove the pod and the usage of the GPU with:
+
+  kubectl scale deployment {{ include "common.names.fullname" . }} --replicas=0
+
+If you are done, and want to remove all data etc, do an:
+
+  helm uninstall {{ .Release.Name }}
