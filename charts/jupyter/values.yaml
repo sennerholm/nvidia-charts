@@ -1,0 +1,35 @@
+image:
+  repository: nvcr.io/nvidia/pytorch
+
+service:
+  port: 
+    port: 8888
+
+strategy:
+  type: Recreate
+
+resources:
+  limits:
+    # One nvidia.com/gpu as standard (or 8 total)
+    nvidia.com/gpu: 1
+  requests: # What we need to be scheduled
+    memory: "16Gi"
+    cpu: "4"
+
+# We want to save data over time
+persistence:
+  data:
+    accessMode: "ReadWriteOnce"	
+    enabled: true
+    size: 100Gi
+    emptyDir: false
+    mountPath: /data
+
+# Set command to wait in the background
+command: ["/opt/conda/bin/python"]
+args: ["/opt/conda/bin/jupyter-notebook"]
+
+# Disable the liveness probe
+probes:
+  liveness:
+    enabled: false

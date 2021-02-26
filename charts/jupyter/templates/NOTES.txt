@@ -1,0 +1,16 @@
+To reach the matlab container do a port-forward to expose the port on your computer
+
+  kubectl port-forward service/{{ include "common.names.fullname" . }} 8888:8888
+
+Check the logs of pod for a line like "http://hostname:8888/?token=e98c3539b933892643a90491340856edrandomsecret"
+and connect your webbrowser to
+
+http://localhost:8888/?token=e98c3539b933892643a90491340856edrandomsecret
+
+When you are done for today remove the pod and the usage of the GPU with:
+
+  kubectl scale deployment {{ include "common.names.fullname" . }} --replicas=0
+
+If you are done, and want to remove all data etc, do an:
+
+  helm uninstall {{ .Release.Name }}
