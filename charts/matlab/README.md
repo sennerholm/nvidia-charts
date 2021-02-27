@@ -48,7 +48,7 @@ kubectl scale deployment rel-matlab --replicas=1
 To uninstall the `rel-matlab` release/deployment and remove all resources (including the data)
 
 ```console
-helm uninstall alertmanager-bot
+helm uninstall rel-matlab
 ```
 
 The command removes all the Kubernetes components associated with the chart **including persistent volumes** and deletes the release.
