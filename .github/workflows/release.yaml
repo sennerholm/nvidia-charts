@@ -28,6 +28,6 @@ jobs:
           helm repo add k8s-at-home https://k8s-at-home.com/charts/
 
       - name: Run chart-releaser
-        uses: helm/chart-releaser-action@v1.2.0
+        uses: helm/chart-releaser-action@v1.6.0
         env:
           CR_TOKEN: "${{ secrets.HELM_GITHUB_TOKEN }}"
